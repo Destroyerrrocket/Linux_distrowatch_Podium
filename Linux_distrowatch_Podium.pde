@@ -30,11 +30,11 @@ void draw () {
   }
   BackgroundColorGradient = extractColorFromImage(LinuxImage[0]);
   setGradient(0, 0, width, height/2, BackgroundColorGradient, color(255), 1);
-  rect(width / 2 - 100, height / 3*2, 200, height / 3, 12, 12, 0, 0);
+  rect(width / 2 - 100, height / 3*2, 200, height / 3+1, 12, 12, 0, 0);
   f.fil(#F9FFD6);
-  rect(width / 4 - 100, height / 4*3, 200, height / 4, 12, 12, 0, 0);
+  rect(width / 4 - 100, height / 4*3, 200, height / 4-1, 12, 12, 0, 0);
   f.fil(#FFDED6);
-  rect(width / 4*3 - 100, height / 5*4, 200, height / 5, 12, 12, 0, 0);
+  rect(width / 4*3 - 100, height / 5*4, 200, height / 5-1, 12, 12, 0, 0);
   f.fil(255);
   textSize(32);
   strokeText("1",width / 2, height - 20);
