@@ -4,8 +4,6 @@ import java.net.*;
 
 PrintWriter out, saveweb;
 PImage[] LinuxImage = new PImage[3];
-String[] lines;
-String alllines;
 String[] parsedTableLines = new String[301];
 String[] parsedTableImages = new String[301];
 color BackgroundColorGradient;
@@ -14,7 +12,7 @@ Fill f = new Fill();
 void setup() {
   background(255);
   LinuxDistrowatch();
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 3; i++) {
     GoogleImageDownloader(parsedTableLines[i], i);
     println(parsedTableImages[i]);
   }
@@ -48,6 +46,7 @@ void draw () {
   image(LinuxImage[0], width / 2, height / 3*2 - 40);
   image(LinuxImage[1], width / 4, height / 4*3 - 40);
   image(LinuxImage[2], width / 4*3, height / 5*4 - 40);
+  save("Linux_podium.jpg");
 }
 
 
@@ -147,6 +146,8 @@ public class Fill {
 }
 
 void LinuxDistrowatch () {
+  String[] lines;
+  String alllines = "";
   println("initializing...");
   try {
     File f = dataFile("Debug.txt");    
@@ -180,7 +181,7 @@ void LinuxDistrowatch () {
     String[][] ParsedtableNames = matchAll(notparsedtable, "<td class=\"phr2\">(.*?)</a></td>");
     println("trying to parse the names");
     out.println("there are " + ParsedtableNames.length + " Names");
-    for (int i = 0; i <= 300; i++) {
+    for (int i = 0; i < 300; i++) {
       int indexOf = ParsedtableNames[i][1].indexOf(">") + 1;
       String parsingTableLines = ParsedtableNames[i][1].substring(indexOf);
       if (!parsingTableLines.equals("Mint")) {
